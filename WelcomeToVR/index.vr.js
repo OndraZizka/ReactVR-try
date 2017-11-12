@@ -11,7 +11,13 @@ export default class WelcomeToVR extends React.Component {
 
         return (
             <View>
+                <PointLight
+                    style={{color: 'white', transform: [{translate: [0, 400, 700]}]}}
+                    intensity={0.6}
+                />
+                <AmbientLight intensity={0.3}/>
                 <Pano source={asset('chess-world.jpg')}/>
+
                 <Text style={{
                         color: 'white', backgroundColor: 'black',
                         fontSize: 0.8, fontWeight: '400',
@@ -24,11 +30,7 @@ export default class WelcomeToVR extends React.Component {
                     }}>
                     Blackboard
                 </Text>
-                <PointLight
-                    style={{color: 'white', transform: [{translate: [0, 400, 700]}]}}
-                    intensity={0.6}
-                />
-                <AmbientLight intensity={0.3}/>
+                <ColorChange/>
 
                 <Cylinder lit
                     radiusTop={0.2}
@@ -148,5 +150,24 @@ export class Column extends React.Component {
     }
 };
 
+
+export class ColorChange extends React.Component {
+    constructor() {
+        super();
+        this.state = {textColor: 'white'};
+    }
+
+    render() {
+        return (
+            <Text
+                style={{color: this.state.textColor, transform: [{translate: [0, 0, -3]}], }}
+                onEnter={() => this.setState({textColor: 'red'})}
+                onExit={() => this.setState({textColor: 'white'})}
+            >
+                This text will turn red when you look at it.
+            </Text>
+        );
+    }
+}
 
 AppRegistry.registerComponent('WelcomeToVR', () => WelcomeToVR);
