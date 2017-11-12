@@ -7,6 +7,8 @@ import {
 
 export default class WelcomeToVR extends React.Component {
     render() {
+        var distances = [...Array(5).keys()].map(i => -4 + 2*i);
+
         return (
             <View>
                 <Pano source={asset('chess-world.jpg')}/>
@@ -52,6 +54,7 @@ export default class WelcomeToVR extends React.Component {
                 />
                 <Tree style={{transform: [{translate: [-2, 0, -3.8]}]}} crownColor={'darkgreen'} />
                 <Tree style={{transform: [{translate: [-3.9, 0, -4]}]}} crownColor={'#f4eb42'} />
+                {/*
                 <Column style={{transform: [{translate: [-4.5, -2, -4]}]}} />
                 <Column style={{transform: [{translate: [-4.5, -2, -2]}]}} />
                 <Column style={{transform: [{translate: [-4.5, -2,  0]}]}} />
@@ -62,6 +65,17 @@ export default class WelcomeToVR extends React.Component {
                 <Column style={{transform: [{translate: [ 4.5, -2,  0]}]}} />
                 <Column style={{transform: [{translate: [ 4.5, -2,  2]}]}} />
                 <Column style={{transform: [{translate: [ 4.5, -2,  4]}]}} />
+                */}
+                {
+                    distances.map((dist) => {
+                        return <Column style={{transform: [{translate: [ 4.5, -2, dist]}]}}/>
+                    })
+                }
+                {
+                    distances.map((dist) => {
+                        return <Column style={{transform: [{translate: [-4.5, -2,  dist]}]}} />
+                    })
+                }
             </View>
         );
     }
