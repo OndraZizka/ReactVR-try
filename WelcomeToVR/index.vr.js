@@ -66,12 +66,10 @@ export default class WelcomeToVR extends React.Component {
                 {/* Columns*/}
                 {
                     distances.map((dist) => {
-                        return <Column style={{transform: [{translate: [ 4.5, -2, dist]}]}} />
-                    })
-                }
-                {
-                    distances.map((dist) => {
-                        return <Column style={{transform: [{translate: [-4.5, -2,  dist]}]}} />
+                        return <View>
+                            <Column style={{transform: [{translate: [ 4.5, -2, dist]}]}} />
+                            <Column style={{transform: [{translate: [-4.5, -2,  dist]}]}} />
+                        </View>
                     })
                 }
             </View>
