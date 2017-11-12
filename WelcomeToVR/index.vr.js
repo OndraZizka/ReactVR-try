@@ -6,25 +6,36 @@ import {
 } from 'react-vr';
 
 export default class WelcomeToVR extends React.Component {
+
+    constructor() {
+        super();
+        this.state = { camera: [0, 0, 0] };
+    }
+
     render() {
         var distances = [...Array(5).keys()].map(i => -4 + 2*i);
-        var camera = { x: 0, y: 0, z: 0 };
-        var STEP = 0.1;
 
+        var STEP = 0.2;
+        let rootComponent = this;
 
         return (
             <View onInput={event => {
-                //console.log(event.nativeEvent);
-                var inputEvent = event.nativeEvent.inputEvent;
-                if (inputEvent.type == "MouseInputEvent" && inputEvent.eventType == "wheel") {}
-                if (inputEvent.type == "KeyboardInputEvent" && inputEvent.eventType == "keypress") {
-                    if (inputEvent.code == "KeyW")
-                        camera.z += STEP;
-                    else if (inputEvent.code == "KeyS")
-                        camera.z -= STEP;
-                    console.log(inputEvent);
-                }
-            }}>
+                    //console.log(event.nativeEvent);
+                    var inputEvent = event.nativeEvent.inputEvent;
+                    if (inputEvent.type == "MouseInputEvent" && inputEvent.eventType == "wheel") {}
+                    if (inputEvent.type == "KeyboardInputEvent" && inputEvent.eventType == "keypress") {
+                        if (inputEvent.code == "KeyW")
+                            //this.camera.z += STEP;
+                            rootComponent.setState({camera: [0, 0, rootComponent.state.camera[2] + STEP]});
+                        else if (inputEvent.code == "KeyS")
+                            //this.camera.z -= STEP;
+                            rootComponent.setState({camera: [0, 0, rootComponent.state.camera[2] - STEP]});
+                        console.log("Event:", inputEvent);
+                        console.log(rootComponent.state.camera);
+                    }
+                }}
+                style={{transform: [{translate: [0, 0, -10+rootComponent.state.camera[2]]}]}}
+            >
                 <PointLight
                     style={{color: 'white', transform: [{translate: [0, 400, 700]}]}}
                     intensity={0.8}
@@ -49,26 +60,27 @@ export default class WelcomeToVR extends React.Component {
                 <Box lit dimWidth={0.24} dimDepth={0.24} dimHeight={0.14}
                     style={{
                         color: "lightblue",
-                        transform: [{translate: [0.4, 0.4, -2]}, {rotateY: +30}, {rotateX: +40}],
+                        transform: [{translate: [-0.4+this.state.camera[2], 0.6, -2]}, {rotateY: +30}, {rotateX: +40}],
                     }}
                 />
                 {/* Floor */}
-                <Box lit dimWidth={10} dimDepth={10} dimHeight={0.04}
+                <Box lit dimWidth={30} dimDepth={30} dimHeight={0.04}
                      style={{
                          color: "darkgreen",
                          transform: [{translate: [0,-3.3,0]}],
                      }}
+                     texture={asset("textures/grass-short.jpg")}
                 />
                 <Tree style={{transform: [{translate: [ -2, 0, -3.8]}]}} crownColor={'darkgreen'} />
                 <Tree style={{transform: [{translate: [  2, 0, -3.8]}]}} crownColor={'orange'} />
-                <Tree style={{transform: [{translate: [ -1, 0,  1.8]}]}} crownColor={'#f4eb42'} />
+                <Tree style={{transform: [{translate: [ -1, 0,  11.8]}]}} crownColor={'#f4eb42'} />
 
                 {/* Columns*/}
                 {
                     distances.map((dist) => {
                         return <View>
                             <Column style={{transform: [{translate: [ 4.5, -2, dist]}]}} />
-                            <Column style={{transform: [{translate: [-4.5, -2,  dist]}]}} />
+                            <Column style={{transform: [{translate: [-4.5, -2, dist]}]}} />
                         </View>
                     })
                 }
@@ -88,9 +100,10 @@ export class Tree extends React.Component {
                           dimHeight={2.5}
                           segments={16}
                           style={{
-                              color: "brown",
+                              color: "white",
                               transform: [{translate: [0, -1, 0]}],
                           }}
+                          texture={asset("textures/bark-birch.jpg")}
                 />
                 <Sphere lit radius={1} widthSegments={20} heightSegments={12}
                         style={{
