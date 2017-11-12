@@ -8,15 +8,29 @@ import {
 export default class WelcomeToVR extends React.Component {
     render() {
         var distances = [...Array(5).keys()].map(i => -4 + 2*i);
+        var camera = { x: 0, y: 0, z: 0 };
+        var STEP = 0.1;
+
 
         return (
-            <View>
+            <View onInput={event => {
+                //console.log(event.nativeEvent);
+                var inputEvent = event.nativeEvent.inputEvent;
+                if (inputEvent.type == "MouseInputEvent" && inputEvent.eventType == "wheel") {}
+                if (inputEvent.type == "KeyboardInputEvent" && inputEvent.eventType == "keypress") {
+                    if (inputEvent.code == "KeyW")
+                        camera.z += STEP;
+                    else if (inputEvent.code == "KeyS")
+                        camera.z -= STEP;
+                    console.log(inputEvent);
+                }
+            }}>
                 <PointLight
                     style={{color: 'white', transform: [{translate: [0, 400, 700]}]}}
-                    intensity={0.6}
+                    intensity={0.8}
                 />
-                <AmbientLight intensity={0.3}/>
-                <Pano source={asset('chess-world.jpg')}/>
+                <AmbientLight intensity={0.4}/>
+                <Pano source={asset("pano-tulipany.jpg")}/>
 
                 <Text style={{
                         color: 'white', backgroundColor: 'black',
@@ -32,45 +46,27 @@ export default class WelcomeToVR extends React.Component {
                 </Text>
                 <ColorChange/>
 
-                <Cylinder lit
-                    radiusTop={0.2}
-                    radiusBottom={0.25}
-                    dimHeight={2.5}
-                    segments={16}
-                    style={{
-                        color: "brown",
-                        transform: [{translate: [2, -1, -3.8]}],
-                    }}
-                />
-                <Sphere lit radius={1}
-                    style={{
-                        color: "darkorange",
-                        transform: [{translate: [2, 0, -3.8]}],
-                    }}
-                />
                 <Box lit dimWidth={0.24} dimDepth={0.24} dimHeight={0.14}
                     style={{
                         color: "lightblue",
                         transform: [{translate: [0.4, 0.4, -2]}, {rotateY: +30}, {rotateX: +40}],
                     }}
                 />
-                <Tree style={{transform: [{translate: [-2, 0, -3.8]}]}} crownColor={'darkgreen'} />
-                <Tree style={{transform: [{translate: [-3.9, 0, -4]}]}} crownColor={'#f4eb42'} />
-                {/*
-                <Column style={{transform: [{translate: [-4.5, -2, -4]}]}} />
-                <Column style={{transform: [{translate: [-4.5, -2, -2]}]}} />
-                <Column style={{transform: [{translate: [-4.5, -2,  0]}]}} />
-                <Column style={{transform: [{translate: [-4.5, -2,  2]}]}} />
-                <Column style={{transform: [{translate: [-4.5, -2,  4]}]}} />
-                <Column style={{transform: [{translate: [ 4.5, -2, -4]}]}} />
-                <Column style={{transform: [{translate: [ 4.5, -2, -2]}]}} />
-                <Column style={{transform: [{translate: [ 4.5, -2,  0]}]}} />
-                <Column style={{transform: [{translate: [ 4.5, -2,  2]}]}} />
-                <Column style={{transform: [{translate: [ 4.5, -2,  4]}]}} />
-                */}
+                {/* Floor */}
+                <Box lit dimWidth={10} dimDepth={10} dimHeight={0.04}
+                     style={{
+                         color: "darkgreen",
+                         transform: [{translate: [0,-3.3,0]}],
+                     }}
+                />
+                <Tree style={{transform: [{translate: [ -2, 0, -3.8]}]}} crownColor={'darkgreen'} />
+                <Tree style={{transform: [{translate: [  2, 0, -3.8]}]}} crownColor={'orange'} />
+                <Tree style={{transform: [{translate: [ -1, 0,  1.8]}]}} crownColor={'#f4eb42'} />
+
+                {/* Columns*/}
                 {
                     distances.map((dist) => {
-                        return <Column style={{transform: [{translate: [ 4.5, -2, dist]}]}}/>
+                        return <Column style={{transform: [{translate: [ 4.5, -2, dist]}]}} />
                     })
                 }
                 {
@@ -98,7 +94,7 @@ export class Tree extends React.Component {
                               transform: [{translate: [0, -1, 0]}],
                           }}
                 />
-                <Sphere lit radius={1}   widthSegments={20} heightSegments={12}
+                <Sphere lit radius={1} widthSegments={20} heightSegments={12}
                         style={{
                             /*color: "darkgreen",*/
                             color: crownColor,
@@ -171,3 +167,4 @@ export class ColorChange extends React.Component {
 }
 
 AppRegistry.registerComponent('WelcomeToVR', () => WelcomeToVR);
+
