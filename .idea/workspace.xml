@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6ff0205d-d58e-4fe6-b443-6665e6121d04" name="Default" comment="">
+    <list default="true" id="6ff0205d-d58e-4fe6-b443-6665e6121d04" name="Default" comment="ReactVR - Textures, event handling to move the camera.">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WelcomeToVR/static_assets/grass-short.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WelcomeToVR/static_assets/pano-Dutch_flower_fields.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WelcomeToVR/static_assets/pano-black-point-wildlife-drive.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WelcomeToVR/static_assets/pano-krajina.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WelcomeToVR/static_assets/pano-tulipany.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WelcomeToVR/static_assets/pano-winterTrees.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WelcomeToVR/static_assets/textures/bark-birch.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WelcomeToVR/static_assets/textures/bricks-concrete.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WelcomeToVR/static_assets/textures/bricks-concrete2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WelcomeToVR/static_assets/textures/grass-short.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WelcomeToVR/static_assets/textures/marble-bw.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WelcomeToVR/static_assets/textures/marble-bw2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WelcomeToVR/static_assets/textures/marble-light.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WelcomeToVR/static_assets/textures/wall-raw-stones.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WelcomeToVR/index.vr.js" afterPath="$PROJECT_DIR$/WelcomeToVR/index.vr.js" />
     </list>
@@ -17,8 +31,8 @@
       <file leaf-file-name="index.vr.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WelcomeToVR/index.vr.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="31" column="98" lean-forward="true" selection-start-line="31" selection-start-column="98" selection-end-line="31" selection-end-column="98" />
+            <state relative-caret-position="522">
+              <caret line="38" column="28" lean-forward="false" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -111,6 +125,13 @@
               <item name="ReactVR" type="462c0819:PsiDirectoryNode" />
               <item name="WelcomeToVR" type="462c0819:PsiDirectoryNode" />
               <item name="static_assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ReactVR" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ReactVR" type="462c0819:PsiDirectoryNode" />
+              <item name="WelcomeToVR" type="462c0819:PsiDirectoryNode" />
+              <item name="static_assets" type="462c0819:PsiDirectoryNode" />
+              <item name="textures" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ReactVR" type="b2602c69:ProjectViewProjectNode" />
@@ -245,7 +266,7 @@
       <option name="presentableId" value="Default" />
       <updated>1510013333175</updated>
       <workItem from="1510013334361" duration="9654000" />
-      <workItem from="1510460757338" duration="14838000" />
+      <workItem from="1510460757338" duration="17653000" />
     </task>
     <task id="LOCAL-00001" summary="ReactVR - trying models">
       <created>1510019048036</created>
@@ -303,11 +324,18 @@
       <option name="project" value="LOCAL" />
       <updated>1510514866383</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="ReactVR - Textures, event handling to move the camera.">
+      <created>1510520680144</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1510520680144</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24492000" />
+    <option name="totallyTimeSpent" value="27307000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="417" y="24" width="3441" height="1417" extended-state="6" />
@@ -357,7 +385,8 @@
     <MESSAGE value="ReactVR - Add a component with an event." />
     <MESSAGE value="ReactVR - Catching events" />
     <MESSAGE value="ReactVR - Columns in one cycle, using view" />
-    <option name="LAST_COMMIT_MESSAGE" value="ReactVR - Columns in one cycle, using view" />
+    <MESSAGE value="ReactVR - Textures, event handling to move the camera." />
+    <option name="LAST_COMMIT_MESSAGE" value="ReactVR - Textures, event handling to move the camera." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -407,8 +436,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/WelcomeToVR/index.vr.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="31" column="98" lean-forward="true" selection-start-line="31" selection-start-column="98" selection-end-line="31" selection-end-column="98" />
+        <state relative-caret-position="522">
+          <caret line="38" column="28" lean-forward="false" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
